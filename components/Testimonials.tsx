@@ -1,5 +1,5 @@
 import { TESTIMONIALS } from "@/data";
-
+import { GitHubIcon } from "@/components/Icons";
 const CONTRIBUTION_COLORS = ["#1E293B", "#DBEAFE", "#93C5FD", "#3B82F6", "#1D4ED8"];
 
 const CONTRIBUTIONS = Array.from({ length: 126 }, (_, i) => {
@@ -16,8 +16,8 @@ export default function Testimonials() {
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <span className="section-label mb-3">{"// client_love"}</span>
+         <div className="flex flex-col items-center text-center mb-16">
+          
           <h2 className="font-display font-bold text-4xl md:text-5xl text-slate-900 tracking-tight mb-4">
             What Clients Say
           </h2>
@@ -27,29 +27,29 @@ export default function Testimonials() {
         </div>
 
         {/* Testimonial cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-20">
+        {/* <div className="grid md:grid-cols-3 gap-6 mb-20">
           {TESTIMONIALS.map((t, i) => (
             <div
               key={i}
               className="card p-7 flex flex-col gap-5 hover:shadow-xl hover:shadow-blue-100/50 group"
             >
               {/* Stars */}
-              <div className="flex gap-1">
+              {/* <div className="flex gap-1">
                 {Array.from({ length: 5 }).map((_, j) => (
                   <span key={j} className="text-amber-400 text-sm">★</span>
                 ))}
               </div>
 
               {/* Quote */}
-              <div className="relative">
+              {/* <div className="relative">
                 <span className="absolute -top-2 -left-1 text-5xl text-blue-100 font-display font-bold leading-none select-none">&quot;</span>
                 <p className="text-slate-600 text-sm leading-[1.85] pt-4 italic relative z-10">
                   {t.quote}
                 </p>
-              </div>
+              </div> */}
 
               {/* Author */}
-              <div className="flex items-center gap-3 pt-2 mt-auto border-t border-slate-100">
+              {/* <div className="flex items-center gap-3 pt-2 mt-auto border-t border-slate-100">
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0"
                   style={{ background: `linear-gradient(135deg, ${t.color}, ${t.color}88)` }}
@@ -63,7 +63,7 @@ export default function Testimonials() {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* ── GitHub Activity CTA ── */}
         <div className="relative rounded-3xl overflow-hidden bg-slate-900 p-10 md:p-14">
@@ -83,12 +83,12 @@ export default function Testimonials() {
                 My GitHub is the best window into how I actually work.
               </p>
               <a
-                href="https://github.com/lakshyamittal"
+                href="https://github.com/lakshya-m-hi"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 font-bold text-sm rounded-xl hover:bg-slate-100 transition-all"
               >
-                <span className="text-base">🐙</span> Open GitHub Profile →
+                <GitHubIcon className="w-5 h-5" /> Open GitHub Profile →
               </a>
             </div>
 

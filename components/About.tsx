@@ -1,4 +1,53 @@
 import { PERSONAL, SERVICES } from "@/data";
+import { GitHubIcon, LinkedInIcon, EmailIcon, DownloadIcon } from "@/components/Icons";
+
+// Service icons as SVGs
+function ServiceIcon({ title }: { title: string }) {
+  switch (title) {
+    case "Frontend Development":
+      return (
+        <svg className="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
+        </svg>
+      );
+    case "Backend & APIs":
+      return (
+        <svg className="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" />
+        </svg>
+      );
+    case "Database Design":
+      return (
+        <svg className="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+          <ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" /><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+        </svg>
+      );
+    case "Deployment & DevOps":
+      return (
+        <svg className="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+          <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+        </svg>
+      );
+    case "Auth & Security":
+      return (
+        <svg className="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+        </svg>
+      );
+    case "Responsive Design":
+      return (
+        <svg className="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+          <rect x="5" y="2" width="14" height="20" rx="2" /><line x1="12" y1="18" x2="12.01" y2="18" />
+        </svg>
+      );
+    default:
+      return (
+        <svg className="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
+        </svg>
+      );
+  }
+}
 
 export default function About() {
   return (
@@ -7,7 +56,6 @@ export default function About() {
 
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-20">
-          <span className="section-label mb-3">{"// about_me"}</span>
           <h2 className="font-display font-bold text-4xl md:text-5xl text-slate-900 tracking-tight mb-4">
             The Developer Behind the Code
           </h2>
@@ -42,9 +90,6 @@ export default function About() {
                     <p className="font-display font-bold text-white text-xl">Lakshya Mittal</p>
                     <p className="text-blue-100 text-sm mt-0.5">Full Stack Developer</p>
                   </div>
-                  {/* Replace the block above with an <img> tag when you have a real photo:
-                      <img src="/avatar.jpg" alt="Lakshya Mittal" className="w-full h-full object-cover" />
-                  */}
                 </div>
 
                 {/* Floating status badge */}
@@ -62,7 +107,7 @@ export default function About() {
                 {[
                   { icon: "📍", label: "Location",    value: PERSONAL.location },
                   { icon: "🎓", label: "Focus",       value: "Full Stack Development" },
-                  { icon: "💼", label: "Experience",  value: "2+ Years" },
+                  { icon: "💼", label: "Experience",  value: "1+ Years" },
                   { icon: "🌐", label: "Availability", value: "Remote / On-site" },
                   { icon: "⚡", label: "Response",    value: "Within 24 hours" },
                 ].map(({ icon, label, value }) => (
@@ -82,18 +127,18 @@ export default function About() {
             {/* Social links */}
             <div className="flex gap-3">
               {[
-                { icon: "🐙", label: "GitHub",   href: PERSONAL.github   },
-                { icon: "💼", label: "LinkedIn", href: PERSONAL.linkedin },
-                { icon: "✉️", label: "Email",    href: `mailto:${PERSONAL.email}` },
+                { icon: <GitHubIcon className="w-5 h-5" />, label: "GitHub",   href: PERSONAL.github   },
+                { icon: <LinkedInIcon className="w-5 h-5" />, label: "LinkedIn", href: PERSONAL.linkedin },
+                { icon: <EmailIcon className="w-5 h-5" />, label: "Email",    href: `mailto:${PERSONAL.email}` },
               ].map(({ icon, label, href }) => (
                 <a
                   key={label}
                   href={href}
-                  target="_blank"
+                  target={label === "Email" ? undefined : "_blank"}
                   rel="noreferrer"
                   className="flex-1 flex flex-col items-center gap-1.5 py-3 card rounded-xl border border-slate-200 hover:border-blue-300 hover:bg-blue-50 transition-all group"
                 >
-                  <span className="text-xl">{icon}</span>
+                  <span className="text-slate-600 group-hover:text-blue-600 transition-colors">{icon}</span>
                   <span className="text-[10px] font-semibold text-slate-500 group-hover:text-blue-600">{label}</span>
                 </a>
               ))}
@@ -121,8 +166,8 @@ export default function About() {
               <div className="grid sm:grid-cols-2 gap-3">
                 {[
                   { icon: "📚", text: "Deep-diving into system design & scalability" },
-                  { icon: "🔨", text: "Building TaskFlow — project mgmt SaaS" },
-                  { icon: "📖", text: "Learning AWS (EC2, S3, Lambda, RDS)" },
+                  { icon: "🔨", text: "Building Ai Trip Planner" },
+                  { icon: "📖", text: "Learning Microservices, AWS (EC2, S3, Lambda)" },
                   { icon: "🤝", text: "Open to new roles & freelance projects" },
                 ].map(({ icon, text }) => (
                   <div key={text} className="flex items-start gap-2.5">
@@ -135,13 +180,10 @@ export default function About() {
 
             {/* CTA buttons */}
             <div className="flex flex-wrap gap-4 pt-2">
-              <a href={PERSONAL.resume} className="btn-primary">
-                Download Resume ↓
+              <a href={PERSONAL.resume} download className="btn-primary inline-flex items-center gap-2">
+                <DownloadIcon className="w-4 h-4" /> Download Resume
               </a>
-              <a
-                href="#contact"
-                className="btn-outline"
-              >
+              <a href="#contact" className="btn-outline">
                 Let&apos;s Talk →
               </a>
             </div>
@@ -151,14 +193,13 @@ export default function About() {
         {/* ── Services / What I Do ── */}
         <div>
           <div className="text-center mb-12">
-            <span className="section-label mb-2 block">{"// what_i_offer"}</span>
             <h3 className="font-display font-bold text-3xl text-slate-900">What I Can Do For You</h3>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {SERVICES.map((s) => (
               <div key={s.title} className="card p-6 group cursor-default">
-                <div className="w-11 h-11 bg-blue-50 rounded-xl flex items-center justify-center text-xl mb-4 group-hover:bg-blue-100 transition-colors border border-blue-100">
-                  {s.icon}
+                <div className="w-11 h-11 bg-blue-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors border border-blue-100">
+                  <ServiceIcon title={s.title} />
                 </div>
                 <h4 className="font-display font-semibold text-base text-slate-900 mb-2">{s.title}</h4>
                 <p className="text-slate-500 text-sm leading-relaxed">{s.desc}</p>

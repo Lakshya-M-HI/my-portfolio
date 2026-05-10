@@ -2,9 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { PERSONAL, STATS, ALL_TECH } from "@/data";
+import { GitHubIcon, DownloadIcon } from "@/components/Icons";
+
 
 const TYPED_ROLES = [
   "Full Stack Developer",
+  "AI Integrated Architect",
+  "AI Website Developer",
   "React & Next.js Dev",
   "Node.js Engineer",
   "API Architect",
@@ -144,7 +148,7 @@ export default function Hero() {
               rel="noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3.5 bg-slate-900 text-white font-semibold text-sm rounded-xl hover:bg-slate-700 transition-all"
             >
-              <span className="text-base">🐙</span> GitHub
+              <GitHubIcon className="w-4 h-4" /> GitHub
             </a>
           </div>
 

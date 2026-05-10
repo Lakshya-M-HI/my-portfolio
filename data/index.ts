@@ -5,29 +5,29 @@ export const PERSONAL = {
   lastName: "Mittal",
   role: "Full Stack Developer",
   tagline: "I build fast, scalable web applications — from pixel-perfect UIs to robust backend systems.",
-  email: "lakshya@example.com",
-  phone: "+91 98765 43210",
-  location: "India",
-  github: "https://github.com/lakshyamittal",
-  linkedin: "https://linkedin.com/in/lakshyamittal",
-  twitter: "https://twitter.com/lakshyamittal",
-  resume: "/resume.pdf",
+  email: "lakshyamittal171@gmail.com",
+  phone: "+91 9509693361", 
+  location: "Rajasthan, India",
+  github: "https://github.com/lakshya-m-hi",
+  linkedin: "https://www.linkedin.com/in/lakshya-mittal-b96511330",
+  twitter: "https://x.com/Lakshya_M_HI",
+  resume: "/LakshyaMittal_Resume.pdf",
   available: true,
   avatarInitials: "LM",
   bio: [
     "I'm a Full Stack Developer who loves turning complex problems into clean, elegant solutions. I specialize in building end-to-end web applications with modern technologies across the entire stack.",
-    "With hands-on experience in React, Next.js, Node.js, and databases like PostgreSQL and MongoDB, I bring both technical depth and a strong eye for user experience to every project I ship.",
+    "With hands-on experience in React, Next.js, Node.js, and databases like MongoDB, I bring both technical depth and a strong eye for user experience to every project I ship.",
     "I'm passionate about clean code, performance optimization, and building products that actually solve problems. I thrive in fast-moving environments and love collaborating with product and design teams.",
   ],
 };
 
 // ─── Navigation ───────────────────────────────────────────────────────────────
 export const NAV_LINKS = [
-  { label: "About",        href: "#about" },
-  { label: "Skills",       href: "#skills" },
-  { label: "Projects",     href: "#projects" },
-  { label: "Experience",   href: "#experience" },
-  { label: "Contact",      href: "#contact" },
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  // { label: "Experience", href: "#experience" },
+  { label: "Contact", href: "#contact" },
 ];
 
 // ─── Tech Stack / Skills ──────────────────────────────────────────────────────
@@ -38,11 +38,11 @@ export const SKILL_CATEGORIES = [
     color: "#2563EB",
     bg: "#EFF6FF",
     skills: [
-      { name: "React.js",     level: 90, icon: "⚛️" },
-      { name: "Next.js",      level: 88, icon: "▲" },
-      { name: "TypeScript",   level: 82, icon: "🔷" },
+      { name: "Next.js", level: 95, icon: "▲" },
+      { name: "React.js", level: 88, icon: "⚛️" },
+      { name: "TypeScript", level: 82, icon: "🔷" },
       { name: "Tailwind CSS", level: 92, icon: "💨" },
-      { name: "HTML / CSS",   level: 95, icon: "🌐" },
+      { name: "HTML / CSS", level: 95, icon: "🌐" },
     ],
   },
   {
@@ -51,11 +51,18 @@ export const SKILL_CATEGORIES = [
     color: "#0891B2",
     bg: "#ECFEFF",
     skills: [
-      { name: "Node.js",      level: 85, icon: "🟢" },
-      { name: "Express.js",   level: 84, icon: "🚀" },
-      { name: "REST APIs",    level: 90, icon: "🔗" },
-      { name: "GraphQL",      level: 72, icon: "🔺" },
-      { name: "Python",       level: 70, icon: "🐍" },
+      { name: "Node.js", level: 85, icon: "🟢" },
+      { name: "Express.js", level: 84, icon: "🚀" },
+      { name: "REST APIs", level: 90, icon: "🔗" },
+      { name: "JWT", level: 85, icon: "🔑" },
+      { name: "OAuth", level: 80, icon: "🔐" },
+      { name: "Authorization", level: 80, icon: "🔐" },
+      { name: "Socket.io", level: 80, icon: "🔌" },
+      { name: "Learning WebSockets", level: 70, icon: "💬" },
+      { name: "Learning Microservices", level: 70, icon: "🗄️" },
+      { name: "Learning Payment Integration", level: 70, icon: "💰" },
+      // { name: "GraphQL", level: 72, icon: "🔺" },
+      // { name: "Python", level: 70, icon: "🐍" },
     ],
   },
   {
@@ -64,11 +71,11 @@ export const SKILL_CATEGORIES = [
     color: "#16A34A",
     bg: "#F0FDF4",
     skills: [
-      { name: "PostgreSQL",   level: 82, icon: "🐘" },
-      { name: "MongoDB",      level: 80, icon: "🍃" },
-      { name: "MySQL",        level: 78, icon: "🐬" },
-      { name: "Prisma ORM",   level: 75, icon: "◆" },
-      { name: "Redis",        level: 65, icon: "🔴" },
+      { name: "PostgreSQL", level: 82, icon: "🐘" },
+      { name: "MongoDB", level: 80, icon: "🍃" },
+      { name: "MySQL", level: 78, icon: "🐬" },
+      // { name: "Prisma ORM", level: 75, icon: "◆" },
+      { name: "Redis", level: 65, icon: "🔴" },
     ],
   },
   {
@@ -78,10 +85,10 @@ export const SKILL_CATEGORIES = [
     bg: "#F5F3FF",
     skills: [
       { name: "Git / GitHub", level: 90, icon: "🐙" },
-      { name: "Docker",       level: 70, icon: "🐳" },
+      { name: "Docker", level: 70, icon: "🐳" },
       { name: "Vercel / Netlify", level: 88, icon: "☁️" },
-      { name: "Postman",      level: 85, icon: "📮" },
-      { name: "Linux / CLI",  level: 75, icon: "🐧" },
+      { name: "Postman", level: 85, icon: "📮" },
+      // { name: "Linux / CLI", level: 75, icon: "🐧" },
     ],
   },
 ];
@@ -89,9 +96,8 @@ export const SKILL_CATEGORIES = [
 // ─── All Technologies (marquee strip) ─────────────────────────────────────────
 export const ALL_TECH = [
   "React", "Next.js", "TypeScript", "Node.js", "Express",
-  "PostgreSQL", "MongoDB", "Tailwind CSS", "GraphQL", "Prisma",
-  "Docker", "Redis", "Git", "Vercel", "Python", "REST APIs",
-  "JWT", "Socket.io", "Stripe", "Cloudinary",
+  "PostgreSQL", "MongoDB", "Tailwind CSS", "Docker", "Redis", "Git", "Vercel", "Netlify", "REST APIs",
+  "JWT", "Socket.io", "Razorpay", "Stripe", "Cloudinary", "ImageKit"
 ];
 
 // ─── Projects ─────────────────────────────────────────────────────────────────
@@ -108,9 +114,9 @@ export const PROJECTS = [
     badgeColor: "badge-blue",
     accentColor: "#2563EB",
     featured: true,
-    github: "https://github.com",
-    live: "https://example.com",
-    status: "Live",
+    github: "https://github.com/lakshya-m-hi",
+    live: "",
+    status: "In Progress",
     stats: [
       { label: "Products", value: "1,200+" },
       { label: "Orders/day", value: "50+" },
@@ -129,9 +135,9 @@ export const PROJECTS = [
     badgeColor: "badge-cyan",
     accentColor: "#0891B2",
     featured: true,
-    github: "https://github.com",
-    live: "https://example.com",
-    status: "Live",
+    github: "https://github.com/lakshya-m-hi",
+    live: "",
+    status: "In Progress",
     stats: [
       { label: "Active Users", value: "200+" },
       { label: "Real-time latency", value: "<50ms" },
@@ -149,15 +155,11 @@ export const PROJECTS = [
     tags: ["Next.js", "React DnD", "PostgreSQL", "Express", "Recharts"],
     badgeColor: "badge-violet",
     accentColor: "#7C3AED",
-    featured: true,
-    github: "https://github.com",
-    live: "https://example.com",
+    featured: false,
+    github: "https://github.com/lakshya-m-hi",
+    live: "",
     status: "In Progress",
-    stats: [
-      { label: "Tasks tracked", value: "5K+" },
-      { label: "Teams", value: "30+" },
-      { label: "Integrations", value: "8" },
-    ],
+    stats: [],
   },
   {
     id: 4,
@@ -169,9 +171,9 @@ export const PROJECTS = [
     badgeColor: "badge-green",
     accentColor: "#16A34A",
     featured: false,
-    github: "https://github.com",
-    live: "https://example.com",
-    status: "Live",
+    github: "https://github.com/lakshya-m-hi",
+    live: "",
+    status: "In Progress",
     stats: [],
   },
   {
@@ -184,9 +186,9 @@ export const PROJECTS = [
     badgeColor: "badge-orange",
     accentColor: "#EA580C",
     featured: false,
-    github: "https://github.com",
+    github: "https://github.com/lakshya-m-hi",
     live: "",
-    status: "Completed",
+    status: "In Progress",
     stats: [],
   },
   {
@@ -199,9 +201,9 @@ export const PROJECTS = [
     badgeColor: "badge-blue",
     accentColor: "#2563EB",
     featured: false,
-    github: "https://github.com",
+    github: "https://github.com/lakshya-m-hi",
     live: "",
-    status: "Open Source",
+    status: "In Progress",
     stats: [],
   },
 ];
@@ -262,20 +264,22 @@ export const EXPERIENCE = [
 
 // ─── What I Offer (Services) ──────────────────────────────────────────────────
 export const SERVICES = [
-  { icon: "⚛️", title: "Frontend Development",  desc: "Pixel-perfect, accessible UIs with React & Next.js. Fast, responsive, and SEO-ready." },
-  { icon: "⚙️", title: "Backend & APIs",        desc: "Scalable REST & GraphQL APIs with Node.js, authentication, and database design." },
-  { icon: "🗄️", title: "Database Design",       desc: "Schema design, query optimization, and ORM setup for PostgreSQL and MongoDB." },
-  { icon: "☁️", title: "Deployment & DevOps",   desc: "CI/CD pipelines, Docker containers, and cloud deployment on Vercel, AWS, and Railway." },
-  { icon: "🔒", title: "Auth & Security",        desc: "JWT, OAuth 2.0, role-based access control, and security best practices." },
-  { icon: "📱", title: "Responsive Design",      desc: "Mobile-first design that works flawlessly across all screen sizes and devices." },
+  { icon: "⚛️", title: "Frontend Development", desc: "Pixel-perfect, accessible UIs with React & Next.js. Fast, responsive, and SEO-ready." },
+  { icon: "⚙️", title: "Backend & APIs", desc: "Scalable REST & GraphQL APIs with Node.js, authentication, and database design." },
+  { icon: "🗄️", title: "Database Design", desc: "Schema design, query optimization, and ORM setup for PostgreSQL and MongoDB." },
+  { icon: "☁️", title: "Deployment & DevOps", desc: "CI/CD pipelines, Docker containers, and cloud deployment on Vercel, AWS, and Digital Ocean." },
+  { icon: "🔒", title: "Auth & Security", desc: "JWT, OAuth 2.0, role-based access control, and security best practices." },
+  { icon: "📱", title: "Responsive Design", desc: "Mobile-first design that works flawlessly across all screen sizes and devices." },
 ];
 
 // ─── Stats ────────────────────────────────────────────────────────────────────
 export const STATS = [
+  { value: "1+", label: "Years Coding" },
   { value: "15+", label: "Projects Built" },
-  { value: "8+",  label: "Happy Clients" },
-  { value: "2+",  label: "Years Coding" },
-  { value: "10+", label: "Open Source PRs" },
+  { value: "20+", label: "Skill Sets" },
+  { value: "30+", label: "GitHub Repositories" },
+  // { value: "8+",  label: "Happy Clients" },
+  // { value: "10+", label: "Open Source PRs" },
 ];
 
 // ─── Testimonials ─────────────────────────────────────────────────────────────

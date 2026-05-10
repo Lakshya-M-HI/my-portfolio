@@ -3,6 +3,14 @@
 import { useState } from "react";
 import type { FormEvent, ChangeEvent } from "react";
 import { PERSONAL } from "@/data";
+import { GitHubIcon, LinkedInIcon, XIcon, EmailIcon, LocationIcon, ClockIcon, SendIcon } from "@/components/Icons";
+
+// ─── Replace with your Formspree form ID ──────────────────────────────────────
+// 1. Go to https://formspree.io → sign up free → New Form
+// 2. Copy the ID from the endpoint (e.g. https://formspree.io/f/abcdefgh → ID is "abcdefgh")
+// 3. Paste it below:
+const FORMSPREE_ID = "mjglppej";
+// ─────────────────────────────────────────────────────────────────────────────
 
 interface Form {
   name: string;
@@ -12,9 +20,10 @@ interface Form {
 }
 
 export default function Contact() {
-  const [form, setForm]         = useState<Form>({ name: "", email: "", subject: "", message: "" });
-  const [loading, setLoading]   = useState(false);
-  const [sent, setSent]         = useState(false);
+  const [form, setForm]       = useState<Form>({ name: "", email: "", subject: "", message: "" });
+  const [loading, setLoading] = useState(false);
+  const [sent, setSent]       = useState(false);
+  const [error, setError]     = useState("");
 
   const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
@@ -22,9 +31,40 @@ export default function Contact() {
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1300));
-    setLoading(false);
-    setSent(true);
+    setError("");
+
+    if (FORMSPREE_ID === "YOUR_FORMSPREE_ID") {
+      // Fallback: open mailto if Formspree not configured yet
+      const body = encodeURIComponent(
+        `Name: ${form.name}\nEmail: ${form.email}\nSubject: ${form.subject}\n\n${form.message}`
+      );
+      window.open(`mailto:${PERSONAL.email}?subject=${encodeURIComponent(form.subject || "Portfolio Contact")}&body=${body}`);
+      setLoading(false);
+      setSent(true);
+      return;
+    }
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          subject: form.subject,
+          message: form.message,
+        }),
+      });
+      if (res.ok) {
+        setSent(true);
+      } else {
+        setError("Something went wrong. Please email me directly.");
+      }
+    } catch {
+      setError("Network error. Please email me directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputCls =
@@ -52,8 +92,10 @@ export default function Contact() {
           <div className="lg:col-span-3">
             {sent ? (
               <div className="h-full flex flex-col items-center justify-center bg-white rounded-3xl border border-emerald-200 p-14 text-center gap-4 shadow-sm">
-                <div className="w-16 h-16 bg-emerald-50 rounded-full border-2 border-emerald-200 flex items-center justify-center text-3xl">
-                  ✅
+                <div className="w-16 h-16 bg-emerald-50 rounded-full border-2 border-emerald-200 flex items-center justify-center">
+                  <svg className="w-8 h-8 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                 </div>
                 <h3 className="font-display font-bold text-2xl text-slate-900">Message Sent!</h3>
                 <p className="text-slate-500 text-sm max-w-xs leading-relaxed">
@@ -120,6 +162,10 @@ export default function Contact() {
                   />
                 </div>
 
+                {error && (
+                  <p className="text-red-500 text-sm text-center">{error}</p>
+                )}
+
                 <button
                   type="submit"
                   disabled={loading}
@@ -131,7 +177,9 @@ export default function Contact() {
                       Sending…
                     </span>
                   ) : (
-                    "Send Message →"
+                    <span className="flex items-center gap-2">
+                      <SendIcon className="w-4 h-4" /> Send Message
+                    </span>
                   )}
                 </button>
 
@@ -150,12 +198,12 @@ export default function Contact() {
               <h3 className="font-display font-bold text-base text-slate-900 mb-6">Contact Info</h3>
               <div className="flex flex-col gap-4">
                 {[
-                  { icon: "✉️", label: "Email",    val: PERSONAL.email,    href: `mailto:${PERSONAL.email}` },
-                  { icon: "📍", label: "Location", val: PERSONAL.location, href: null },
-                  { icon: "⏱️", label: "Response", val: "Within 24 hours", href: null },
+                  { icon: <EmailIcon className="w-4 h-4 text-blue-600" />,    label: "Email",    val: PERSONAL.email,    href: `mailto:${PERSONAL.email}` },
+                  { icon: <LocationIcon className="w-4 h-4 text-blue-600" />, label: "Location", val: PERSONAL.location, href: null },
+                  { icon: <ClockIcon className="w-4 h-4 text-blue-600" />,    label: "Response", val: "Within 24 hours",  href: null },
                 ].map(({ icon, label, val, href }) => (
                   <div key={label} className="flex items-center gap-3">
-                    <div className="w-9 h-9 bg-blue-50 rounded-xl border border-blue-100 flex items-center justify-center text-sm shrink-0">
+                    <div className="w-9 h-9 bg-blue-50 rounded-xl border border-blue-100 flex items-center justify-center shrink-0">
                       {icon}
                     </div>
                     <div>
@@ -176,9 +224,9 @@ export default function Contact() {
               <h3 className="font-display font-bold text-sm text-slate-900 mb-5">Find Me Online</h3>
               <div className="flex flex-col gap-3">
                 {[
-                  { icon: "🐙", name: "GitHub",   desc: "Code & open source",  href: PERSONAL.github,   color: "#0F172A" },
-                  { icon: "💼", name: "LinkedIn", desc: "Professional profile", href: PERSONAL.linkedin, color: "#0A66C2" },
-                  { icon: "🐦", name: "Twitter",  desc: "Dev thoughts & tips",  href: PERSONAL.twitter,  color: "#1DA1F2" },
+                  { icon: <GitHubIcon className="w-5 h-5" />,   name: "GitHub",   desc: "Code & open source",  href: PERSONAL.github,   color: "#0F172A" },
+                  { icon: <LinkedInIcon className="w-5 h-5" />, name: "LinkedIn", desc: "Professional profile", href: PERSONAL.linkedin, color: "#0A66C2" },
+                  { icon: <XIcon className="w-5 h-5" />,        name: "Twitter",  desc: "Dev thoughts & tips",  href: PERSONAL.twitter,  color: "#1DA1F2" },
                 ].map((s) => (
                   <a
                     key={s.name}
@@ -187,7 +235,7 @@ export default function Contact() {
                     rel="noreferrer"
                     className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:border-blue-200 hover:bg-blue-50 transition-all group"
                   >
-                    <div className="w-9 h-9 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-center text-lg shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="w-9 h-9 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform text-slate-600 group-hover:text-blue-600">
                       {s.icon}
                     </div>
                     <div>
@@ -213,6 +261,7 @@ export default function Contact() {
               </p>
               <a
                 href={PERSONAL.resume}
+                download
                 className="inline-flex items-center gap-2 px-4 py-2.5 bg-white text-blue-600 font-bold text-sm rounded-xl hover:bg-blue-50 transition-all"
               >
                 Download Resume ↓

@@ -13,7 +13,6 @@ export default function Skills() {
 
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <span className="section-label mb-3">{"// tech_stack"}</span>
           <h2 className="font-display font-bold text-4xl md:text-5xl text-slate-900 tracking-tight mb-4">
             Skills & Technologies
           </h2>
@@ -62,7 +61,7 @@ export default function Skills() {
                 {[
                   { label: "Junior → Mid",  pct: "Current" },
                   { label: "Total Skills",  pct: `${SKILL_CATEGORIES.reduce((a,c) => a + c.skills.length, 0)}+` },
-                  { label: "Years Coding",  pct: "2+" },
+                  { label: "Years Coding",  pct: "1+" },
                 ].map(({ label, pct }) => (
                   <div key={label} className="flex justify-between items-center">
                     <span className="text-blue-100 text-xs">{label}</span>

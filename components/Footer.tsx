@@ -1,4 +1,5 @@
 import { PERSONAL, NAV_LINKS } from "@/data";
+import { EmailIcon, GitHubIcon, LinkedInIcon, XIcon } from "@/components/Icons";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -42,14 +43,14 @@ export default function Footer() {
             <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-5">Get In Touch</p>
             <div className="flex flex-col gap-3">
               {[
-                { icon: "✉️", text: PERSONAL.email,    href: `mailto:${PERSONAL.email}` },
-                { icon: "🐙", text: "GitHub",           href: PERSONAL.github },
-                { icon: "💼", text: "LinkedIn",         href: PERSONAL.linkedin },
-                { icon: "🐦", text: "Twitter / X",      href: PERSONAL.twitter },
+                { icon: <EmailIcon className="w-4 h-4" />,    text: PERSONAL.email,    href: `mailto:${PERSONAL.email}` },
+                { icon: <GitHubIcon className="w-4 h-4" />,   text: "GitHub",           href: PERSONAL.github },
+                { icon: <LinkedInIcon className="w-4 h-4" />, text: "LinkedIn",         href: PERSONAL.linkedin },
+                { icon: <XIcon className="w-4 h-4" />,        text: "Twitter / X",      href: PERSONAL.twitter },
               ].map(({ icon, text, href }) => (
-                <a key={text} href={href} target="_blank" rel="noreferrer"
+                <a key={text} href={href} target={text === PERSONAL.email ? undefined : "_blank"} rel="noreferrer"
                   className="flex items-center gap-2.5 text-sm text-slate-400 hover:text-white transition-colors">
-                  <span className="text-base">{icon}</span>
+                  <span className="text-slate-400">{icon}</span>
                   <span>{text}</span>
                 </a>
               ))}
