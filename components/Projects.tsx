@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PROJECTS } from "@/data";
-import { GitHubIcon, CodeIcon } from "@/components/Icons";
+import { GitHubIcon, CodeIcon, PlaneIcon, CarIcon, LinkIcon, KeyIcon, GlobeIcon, FileCheckIcon } from "@/components/Icons";
 
 const FILTERS = ["All", "Featured", "Live", "Open Source"];
 
@@ -183,10 +183,15 @@ export default function Projects() {
               >
                 <div className="flex items-start justify-between">
                   <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center text-xl"
-                    style={{ background: p.accentColor + "15", border: `1px solid ${p.accentColor}30` }}
+                    className="w-11 h-11 rounded-xl flex items-center justify-center"
+                    style={{ background: p.accentColor + "15", border: `1px solid ${p.accentColor}30`, color: p.accentColor }}
                   >
-                    {p.id === 4 ? "🏥" : p.id === 5 ? "₿" : "📦"}
+                    {p.title === "Ghoomosa" && <PlaneIcon className="w-5 h-5" />}
+                    {p.title === "FastGo" && <CarIcon className="w-5 h-5" />}
+                    {p.title === "BitLinks" && <LinkIcon className="w-5 h-5" />}
+                    {p.title === "Password Manager" && <KeyIcon className="w-5 h-5" />}
+                    {p.title === "Rest Countries API" && <GlobeIcon className="w-5 h-5" />}
+                    {p.title === "Invoice QC Console" && <FileCheckIcon className="w-5 h-5" />}
                   </div>
                   <span className={`badge ${STATUS_COLORS[p.status] ?? "badge-blue"} text-[10px]`}>
                     {p.status}

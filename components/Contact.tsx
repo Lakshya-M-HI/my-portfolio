@@ -33,7 +33,7 @@ export default function Contact() {
     setLoading(true);
     setError("");
 
-    if (FORMSPREE_ID === "YOUR_FORMSPREE_ID") {
+    if (FORMSPREE_ID === "mjglppej") {
       // Fallback: open mailto if Formspree not configured yet
       const body = encodeURIComponent(
         `Name: ${form.name}\nEmail: ${form.email}\nSubject: ${form.subject}\n\n${form.message}`
@@ -76,7 +76,7 @@ export default function Contact() {
 
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <span className="section-label mb-3">{"// get_in_touch"}</span>
+          
           <h2 className="font-display font-bold text-4xl md:text-5xl text-slate-900 tracking-tight mb-4">
             Let&apos;s Work Together
           </h2>

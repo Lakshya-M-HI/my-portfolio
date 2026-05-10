@@ -16,7 +16,7 @@ export default function Testimonials() {
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}
-         <div className="flex flex-col items-center text-center mb-16">
+         {/* <div className="flex flex-col items-center text-center mb-16">
           
           <h2 className="font-display font-bold text-4xl md:text-5xl text-slate-900 tracking-tight mb-4">
             What Clients Say
@@ -24,7 +24,7 @@ export default function Testimonials() {
           <p className="text-slate-500 text-lg max-w-xl">
             Feedback from people I&apos;ve worked with directly.
           </p>
-        </div>
+        </div> */}
 
         {/* Testimonial cards */}
         {/* <div className="grid md:grid-cols-3 gap-6 mb-20">
