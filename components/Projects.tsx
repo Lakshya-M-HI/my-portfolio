@@ -104,7 +104,7 @@ export default function Projects() {
                   </div>
 
                   {/* Metrics */}
-                  {p.stats.length > 0 && (
+                  {/* {p.stats.length > 0 && (
                     <div className="flex gap-5">
                       {p.stats.map((s) => (
                         <div key={s.label}>
@@ -113,7 +113,7 @@ export default function Projects() {
                         </div>
                       ))}
                     </div>
-                  )}
+                  )} */}
                 </div>
 
                 {/* Content side */}
